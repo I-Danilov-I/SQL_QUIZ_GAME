@@ -137,7 +137,7 @@ def tipp_anzeigen(tipp):
     print("\n")
     print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<🏴 TIPP 🏴>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     print(tipp)
-    print("-"*100)
+    print("-" * 100)
     print()
     time.sleep(10)
 
@@ -154,7 +154,7 @@ def fragestellung_formatiert(frage_nr, frage_stellung):
     print(f"_" * 41, f"✭ Farge Nr. {frage_nr} ✭ ", "_" * 41)
     for zeile in frage_stellung:
         print(f"❓ {zeile:98} ❓")
-    print("-"*103, "\n")
+    print("-" * 103, "\n")
 
 
 def eingabe_annehmen():
@@ -320,140 +320,134 @@ def finale():
 
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[ HAUPTPROGRAMM ]>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-regeln()
-menu()
-musik("start")
-input("Drücken sie Enter wenn sie Starten möchten: ")
-print()
+try:
+    regeln()
+    menu()
+    musik("start")
+    input("Drücken sie Enter wenn sie Starten möchten: ")
+    print()
 
-print("💫 GESAMT GOLDSTERNE:", GOLD_STERNE_GESAMT, GOLD_STERNE_GESAMT * "🌟")
+    print("💫 GESAMT GOLDSTERNE:", GOLD_STERNE_GESAMT, GOLD_STERNE_GESAMT * "🌟")
 
+    # 1.1 Datenbank anlegen_____________________________________________________________________________________________
+    NR = [1]
+    FRAGESTELLUNG = ["Mit welchen Befehl kann man eine Datenbank mit dem Namen 'ASD' erstellen?"]
 
-# 1.1 Datenbank anlegen_____________________________________________________________________________________________
-NR = [1]
-FRAGESTELLUNG = ["Mit welchen Befehl kann man eine Datenbank mit dem Namen 'ASD' erstellen?"]
+    TIPP = ["Was heist Erstellen auf Englisch? Was wollen wir machen, eine Datenbank erstellen."]
 
-TIPP = ["Was heist Erstellen auf Englisch? Was wollen wir machen, eine Datenbank erstellen."]
+    LOSUNGEN = ["CREATE DATABASE ASD;", "CREATE DATABASE ASD ;", " CREATE DATABASE ASD;"]
+    play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
 
-LOSUNGEN = ["CREATE DATABASE ASD;", "CREATE DATABASE ASD ;", " CREATE DATABASE ASD;"]
-play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
+    # 1.2 Existierende Datenbanken anzeigen_____________________________________________________________________________
+    NR = [2]
+    FRAGESTELLUNG = ["Mit welchem Befehl werden alle existierenden Datenbanken angezeigt?"]
 
+    TIPP = ["Was heist Zeigen auf Englisch? Wir möchten die Datenbanken anzeigen lassen. ****  DATABASES;"]
 
-# 1.2 Existierende Datenbanken anzeigen_____________________________________________________________________________
-NR = [2]
-FRAGESTELLUNG = ["Mit welchem Befehl werden alle existierenden Datenbanken angezeigt?"]
+    LOSUNGEN = ["SHOW DATABASES;", "SHOW  DATABASES;", "SHOW  DATABASES;"]
 
-TIPP = ["Was heist Zeigen auf Englisch? Wir möchten die Datenbanken anzeigen lassen. ****  DATABASES;"]
+    play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
 
-LOSUNGEN = ["SHOW DATABASES;", "SHOW  DATABASES;", "SHOW  DATABASES;"]
+    # 1.3 Datenbank löschen_____________________________________________________________________________________________
+    NR = [3]
+    FRAGESTELLUNG = ["Um eine Datenbank namens ASD zu löschen, benötigen Sie den Befehl..."]
 
-play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
+    TIPP = ["Wir möchten die Datenbanken löschen(DROP)"]
 
+    LOSUNGEN = ["DROP DATABASE ASD;", "DROP  DATABASE ASD;", "DROP DATABASE  ASD;"]
 
-# 1.3 Datenbank löschen_____________________________________________________________________________________________
-NR = [3]
-FRAGESTELLUNG = ["Um eine Datenbank namens ASD zu löschen, benötigen Sie den Befehl..."]
+    play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
 
-TIPP = ["Wir möchten die Datenbanken löschen(DROP)"]
+    # 1.3.1 Datenbank löschen___________________________________________________________________________________________
+    NR = [4]
+    FRAGESTELLUNG = ["Um vor dem Löschen sicherzustellen dass die Datenbank existiert,"
+                     "sollten Sie folgenden Befehl verwenden..."]
 
-LOSUNGEN = ["DROP DATABASE ASD;", "DROP  DATABASE ASD;", "DROP DATABASE  ASD;"]
+    TIPP = ["Da Hilft dir IF EXISTS"]
 
-play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
+    LOSUNGEN = ["DROP DATABASE IF EXISTS ASD;", "DROP  DATABASE IF EXISTS", "DROP DATABASE  IF EXISTS;"]
 
+    play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
 
-# 1.3.1 Datenbank löschen___________________________________________________________________________________________
-NR = [4]
-FRAGESTELLUNG = ["Um vor dem Löschen sicherzustellen dass die Datenbank existiert,"
-                 "sollten Sie folgenden Befehl verwenden..."]
+    # 1.4 Datenbank auswählen___________________________________________________________________________________________
+    NR = [5]
+    FRAGESTELLUNG = ["Um mit einer Datenbank zu arbeiten, muss diese erst mit *** ausgewählt werden.",
+                     "Wählen sie die Datenbank ASD"]
 
-TIPP = ["Da Hilft dir IF EXISTS"]
+    TIPP = ["Um mit einer Datenbank zu arbeiten, muss diese erst mit USE ausgewählt werden."]
 
-LOSUNGEN = ["DROP DATABASE IF EXISTS ASD;", "DROP  DATABASE IF EXISTS", "DROP DATABASE  IF EXISTS;"]
+    LOSUNGEN = ["USE ASD;", "USE  ASD;", "USE  ASD;"]
 
-play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
+    play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
 
+    # 2.1 Tabelle anlegen_______________________________________________________________________________________________
+    NR = [6]
+    FRAGESTELLUNG = [
+        "Eine Tabelle ist mit den Namen TAB anzulegen. Zusätzlich zu diesem Befehl müssen der Tabellenname",
+        "und die benötigten Spalten mit den jeweiligen Datentypen angegeben werden."]
 
-# 1.4 Datenbank auswählen___________________________________________________________________________________________
-NR = [5]
-FRAGESTELLUNG = ["Um mit einer Datenbank zu arbeiten, muss diese erst mit *** ausgewählt werden.",
-                 "Wählen sie die Datenbank ASD"]
+    TIPP = ["Eine Tabelle kann man mit dem Befehl CREATE TABLE anlegen. Zusätzlich zu diesem Befehl müssen der",
+            "Tabellenname und die benötigten Spalten mit den jeweiligen Datentypen angegeben werden.",
+            "CREATE TABLE ASD (ID INT NOT NULL, SPALTE1 VARCHAR(50));"]
 
-TIPP = ["Um mit einer Datenbank zu arbeiten, muss diese erst mit USE ausgewählt werden."]
+    LOSUNGEN = ["CREATE TABLE ASD (ID INT NOT NULL, SPALTE1 VARCHAR(50));"]
 
-LOSUNGEN = ["USE ASD;", "USE  ASD;", "USE  ASD;"]
+    play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
 
-play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
+    # 2.2 Existierende Tabellen anzeigen _______________________________________________________________________________
+    NR = [7]
+    FRAGESTELLUNG = ["Mit welchen Befehl werden alle existierenden Tabellen von der Datenbank ASD angezeigt."]
 
+    TIPP = ["Was heist Zeigen auf Englisch? **** TABLES FROM tabellennamen"]
 
-# 2.1 Tabelle anlegen_________________________________________________________________________________________________
-NR = [6]
-FRAGESTELLUNG = ["Eine Tabelle ist mit den Namen TAB anzulegen. Zusätzlich zu diesem Befehl müssen der Tabellenname",
-                 "und die benötigten Spalten mit den jeweiligen Datentypen angegeben werden."]
+    LOSUNGEN = ["SHOW TABLES FROM ASD;", "SHOW  TABLES FROM ASD ; SHOW TABLES  FROM ASD;"]
 
-TIPP = ["Eine Tabelle kann man mit dem Befehl CREATE TABLE anlegen. Zusätzlich zu diesem Befehl müssen der",
-        "Tabellenname und die benötigten Spalten mit den jeweiligen Datentypen angegeben werden.",
-        "CREATE TABLE ASD (ID INT NOT NULL, SPALTE1 VARCHAR(50));"]
+    play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
 
-LOSUNGEN = ["CREATE TABLE ASD (ID INT NOT NULL, SPALTE1 VARCHAR(50));"]
+    # 2.3 Tabelle löschen_______________________________________________________________________________________________
+    NR = [8]
+    FRAGESTELLUNG = ["Um eine Tabelle namens ASD zu löschen, benötigen Sie den Befehl..."]
 
-play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
+    TIPP = ["Genau so wie bei Löschen von Datenbanken. Stichwort: Drop"]
 
+    LOSUNGEN = ["DROP TABLE ASD;", "DROP  TABLES ASD; DROP TABLES  ASD;"]
 
-# 2.2 Existierende Tabellen anzeigen _______________________________________________________________________________
-NR = [7]
-FRAGESTELLUNG = ["Mit welchen Befehl werden alle existierenden Tabellen von der Datenbank ASD angezeigt."]
+    play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
 
-TIPP = ["Was heist Zeigen auf Englisch? **** TABLES FROM tabellennamen"]
+    # 2.3.1 Tabelle löschen, wenn Existiert_____________________________________________________________________________
+    NR = [9]
+    FRAGESTELLUNG = ["Die Tabelle namens ASD soll nur gelöscht werden, wenn sie Existiert..."]
 
-LOSUNGEN = ["SHOW TABLES FROM ASD;", "SHOW  TABLES FROM ASD ; SHOW TABLES  FROM ASD;"]
+    TIPP = ["Wie bei dem Befehl DROP DATABASE gibt es auch hier die Option IF EXISTS. "]
 
-play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
+    LOSUNGEN = ["DROP TABLE IF EXISTS ASD;", "DROP  TABLE IF EXISTS ASD;", "DROP TABLE  IF EXISTS ASD;"]
 
+    play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
 
-# 2.3 Tabelle löschen_______________________________________________________________________________________________
-NR = [8]
-FRAGESTELLUNG = ["Um eine Tabelle namens ASD zu löschen, benötigen Sie den Befehl..."]
+    # 2.4 Spalte hinzufügen_____________________________________________________________________________________________
+    NR = [10]
+    FRAGESTELLUNG = [
+        "Wenn nachträglich noch eine Spalte in eine Tabelle eingefügt werden soll, benötigen Sie den Befehl",
+        "ALTER TABLE mit der Option ADD COLUMN. "]
 
-TIPP = ["Genau so wie bei Löschen von Datenbanken. Stichwort: Drop"]
+    TIPP = ["SO ist Korrekt: ALTER TABLE asd ADD COLUMN (SPALTE2 CHAR(50));"]
 
-LOSUNGEN = ["DROP TABLE ASD;", "DROP  TABLES ASD; DROP TABLES  ASD;"]
+    LOSUNGEN = ["ALTER TABLE ASD ADD COLUMN (SPALTE2 CHAR(50));"]
 
-play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
+    play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
 
+    # Finale____________________________________________________________________________________________________________
 
-# 2.3.1 Tabelle löschen, wenn Existiert_____________________________________________________________________________
-NR = [9]
-FRAGESTELLUNG = ["Die Tabelle namens ASD soll nur gelöscht werden, wenn sie Existiert..."]
+    # Um Funktionen Parallel laufen zu lassen, erstelle ich ein Thread
+    MUSIK = Thread(target=musik("win_game"))
+    MUSIK.start()
 
-TIPP = ["Wie bei dem Befehl DROP DATABASE gibt es auch hier die Option IF EXISTS. "]
+    finale()
 
-LOSUNGEN = ["DROP TABLE IF EXISTS ASD;", "DROP  TABLE IF EXISTS ASD;", "DROP TABLE  IF EXISTS ASD;"]
+    FINALE = Thread(target=belohnung)
+    FINALE.start()
 
-play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
-
-
-# 2.4 Spalte hinzufügen_______________________________________________________________________________________________
-NR = [10]
-FRAGESTELLUNG = ["Wenn nachträglich noch eine Spalte in eine Tabelle eingefügt werden soll, benötigen Sie den Befehl",
-                 "ALTER TABLE mit der Option ADD COLUMN. "]
-
-TIPP = ["SO ist Korrekt: ALTER TABLE asd ADD COLUMN (SPALTE2 CHAR(50));"]
-
-LOSUNGEN = ["ALTER TABLE ASD ADD COLUMN (SPALTE2 CHAR(50));"]
-
-play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
-
-
-# Finale_____________________________________________________________________________________________________________
-
-# Um Funktionen Parallel laufen zu lassen, erstelle ich ein Thread
-MUSIK = Thread(target=musik("win_game"))
-MUSIK.start()
-
-finale()
-
-FINALE = Thread(target=belohnung)
-FINALE.start()
-
-time.sleep(30)
-sys.exit("Programm Ende")
+    time.sleep(30)
+    sys.exit("Programm Ende")
+except KeyboardInterrupt:
+    sys.exit("Beendet durch Benutzer.")
