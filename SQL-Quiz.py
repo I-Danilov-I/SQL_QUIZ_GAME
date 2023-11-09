@@ -1,4 +1,5 @@
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[ IMPORT ]>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+import os
 import random
 import sys
 import time
@@ -10,6 +11,10 @@ from threading import Thread
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[ VARIABLEN ]>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 GOLD_STERNE_GESAMT = 3
+
+# Den Arbeitsverzeichnispfad auf das Verzeichnis der ausführbaren Datei setzen
+working_directory = os.path.dirname(os.path.abspath(__file__))
+os.chdir(working_directory)
 
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[ FUNKTIONEN ]>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -411,7 +416,7 @@ FRAGESTELLUNG = ["Um eine Tabelle namens ASD zu löschen, benötigen Sie den Bef
 
 TIPP = ["Genau so wie bei Löschen von Datenbanken. Stichwort: Drop"]
 
-LOSUNGEN = ["DROP TABLES ASD;", "DROP  TABLES ASD; DROP TABLES  ASD;"]
+LOSUNGEN = ["DROP TABLE ASD;", "DROP  TABLES ASD; DROP TABLES  ASD;"]
 
 play(NR, FRAGESTELLUNG, TIPP, LOSUNGEN)
 
